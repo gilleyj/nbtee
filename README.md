@@ -4,16 +4,16 @@ A simple non-blocking named-pipe redirector with multiplexing
 ## Compiling
 
 ```
-gcc bftee.c -o bftee
+gcc nbtee.c -o nbtee
 ```
 
 ## Usage
 
-Redirect your chatty program into the bftee executable with a named pipe and a size of a buffer:
+Redirect your chatty program into the nbtee executable with a named pipe and a size of a buffer:
 
 ```
 Usage:
- outputProg 2>&1 | ./bftee [FIFO] [BufferSize]
+ outputProg 2>&1 | ./nbtee [FIFO] [BufferSize]
 ```
 
 Where:
@@ -24,7 +24,7 @@ Where:
 
 ```
 mkfifo my_named_pipe
-ping 8.8.4.4 2>&1 | ./bftee my_named_pipe 80 | gzip > compressed_output.gz &
+ping 8.8.4.4 2>&1 | ./nbtee my_named_pipe 80 | gzip > compressed_output.gz &
 cat my_named_pipe
 ```
 
